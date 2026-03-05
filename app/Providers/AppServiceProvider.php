@@ -6,6 +6,7 @@
     use App\Models\Technic;
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Blade;
+    use Illuminate\Support\Facades\URL;
     use Illuminate\Support\ServiceProvider;
     use App\Models\BusinessProducts;
 
@@ -25,6 +26,10 @@
          * @return void
          */
         public function boot() {
+            if (config('app.env') === 'production') {
+                URL::forceScheme('https');
+            }
+
             Blade::directive('getMinPrice', function() {
                 $price = Technic::select('price')->min('price');
                 return (!empty($price)) ? number_format($price, 0, '', '') : 1;
