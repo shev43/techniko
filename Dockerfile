@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev libxml2-dev libzip-dev libsqlite3-dev ca-certificates gnupg \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql pdo_sqlite mbstring exif pcntl bcmath gd zip \
-    && a2enmod rewrite \
+    && a2dismod mpm_event && a2enmod mpm_prefork && a2enmod rewrite \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js 18 LTS via NodeSource
@@ -50,7 +50,8 @@ RUN touch /var/www/html/database/database.sqlite \
 # Create startup script
 RUN echo '#!/bin/bash\n\
 if [ -n "$PORT" ]; then\n\
-    sed -i "s/80/$PORT/g" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf\n\
+    sed -i "s/Listen 80/Listen $PORT/g" /etc/apache2/ports.conf\n\
+    sed -i "s/:80/:$PORT/g" /etc/apache2/sites-available/000-default.conf\n\
 fi\n\
 php artisan migrate --force 2>/dev/null || true\n\
 php artisan config:cache\n\
