@@ -1,0 +1,67 @@
+.popover {
+    box-shadow: 0 4px 20px 0 rgba(#000, .05);
+    border-radius: 0;
+    border: none;
+    background: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .05em;
+    color: var(--color-dark);
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+        max-width: 385px;
+    }
+
+    &-header {
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        padding: 18px 15px 15px;
+        font-size: 16px;
+        line-height: 26px;
+        color: inherit;
+    }
+
+    &-body {
+        color: inherit;
+        padding: 0 18px 24px;
+        font-size: 18px;
+        line-height: 25px;
+    }
+}
+
+.bs-popover-auto {
+    &[x-placement^="top"] {
+        margin-bottom: 21px;
+    }
+
+    &[x-placement^="right"] {
+        margin-left: 21px;
+    }
+
+    &[x-placement^="bottom"] {
+        margin-top: 21px;
+    }
+
+    &[x-placement^="left"] {
+        margin-right: 21px;
+    }
+}
+
+.bs-popover {
+    &-top {
+        margin-bottom: 21px;
+    }
+
+    &-right {
+        margin-left: 21px;
+    }
+
+    &-bottom {
+        margin-top: 21px;
+    }
+
+    &-left {
+        margin-right: 21px;
+    }
+}

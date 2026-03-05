@@ -1,0 +1,15 @@
+.notification {
+
+    .item {
+        border-radius: .25rem;
+        position: relative;
+        padding: 10px 20px;
+        background: var(--color-light);
+        margin: 0 0 30px;
+
+        &.new {
+            background: #fffad9;
+        }
+
+    }
+}

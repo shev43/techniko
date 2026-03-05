@@ -1,0 +1,116 @@
+.premium {
+    display: flex;
+
+    &-side {
+        min-height: calc(100vh - var(--header-h));
+        display: flex;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        flex-direction: column;
+        justify-content: center;
+
+        &--left {
+            color: var(--color-white);
+            position: static;
+
+            @include media-breakpoint-down(sm) {
+                position: relative;
+            }
+        }
+
+        &-list {
+            padding: 0;
+            margin: 0 0 40px;
+            list-style: none;
+            counter-reset: counter;
+            letter-spacing: .05em;
+
+            li {
+                margin: 0 0 30px;
+                font-size: 18px;
+                line-height: 25px;
+                font-weight: 700;
+                counter-increment: counter;
+
+                &::before {
+                    content: counters(counter, '') '. ';
+                }
+            }
+
+            p {
+                margin: 15px 0 30px;
+                font-size: 16px;
+                line-height: 26px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    &-bg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #000;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: .5;
+        }
+    }
+
+    &-text {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 25px;
+
+        p {
+            margin: 0;
+
+            & + p {
+                margin-top: 25px;
+            }
+        }
+    }
+
+    &-adding {
+        width: 100%;
+        padding: 40px 15px;
+        margin: 0 0 30px;
+        background: var(--color-light);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        &-add {
+            flex-shrink: 0;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 25px;
+            fill: var(--color-gray);
+            color: var(--color-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 20px;
+
+            .icon {
+                width: 20px;
+                height: 20px;
+                margin: 0 16px 0 0;
+                fill: inherit;
+            }
+        }
+
+        &-text {
+            max-width: 350px;
+            margin: 0 0 40px;
+        }
+    }
+}

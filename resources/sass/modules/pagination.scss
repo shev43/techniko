@@ -1,0 +1,59 @@
+.page {
+    &-link {
+        padding: 5px 10px;
+        font-size: 28px;
+        line-height: 30px;
+        color: var(--color-dark);
+        border: none;
+        margin: 0;
+
+        @include media-breakpoint-down(xs) {
+            font-size: 22px;
+        }
+
+    }
+
+    &-item:not(:first-child) &-link {
+        margin-left: 10px;
+    }
+
+    &-item:first-child &-link,
+    &-item:last-child &-link {
+        border-radius: 0;
+    }
+
+    &-item.disabled:first-child &-link,
+    &-item.disabled:last-child &-link {
+        background-color: var(--color-light);
+    }
+
+    &-item.active &-link {
+        background-color: #fff;
+        font-weight: 700;
+        color: var(--color-dark);
+    }
+
+    &-link {
+        text-align: center;
+        min-width: 40px;
+        color: var(--color-dark);
+        fill: var(--color-dark);
+
+        &:hover {
+            color: var(--color-white);
+            background-color: var(--color-main);
+            fill: var(--color-white);
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: baseline;
+            fill: inherit;
+        }
+    }
+}

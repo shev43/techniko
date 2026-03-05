@@ -1,0 +1,44 @@
+.alert {
+    border-radius: 0;
+    color: var(--color-dark);
+
+    &-success {
+        background: rgba(#0D314F, .2);
+        border-color: var(--color-dark);
+        color: var(--color-dark);
+    }
+
+    &-warning {
+        background: rgba(#FC610A, .2);
+        border-color: var(--color-error);
+        color: var(--color-dark);
+    }
+
+    &-dismissible {
+        padding-right: 50px;
+
+        .close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: 1;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+
+            &:focus {
+                outline: none;
+            }
+
+            svg {
+                width: 32px;
+                height: 32px;
+                transform: rotate(45deg);
+                fill: var(--color-dark);
+            }
+        }
+    }
+}

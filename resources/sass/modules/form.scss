@@ -1,0 +1,334 @@
+textarea {
+    min-height: 68px;
+}
+
+.form-group {
+    margin: 0 0 40px;
+    position: relative;
+
+    &-sms {
+        display: flex;
+        justify-content: center;
+
+        .form-control {
+            width: 20px;
+            text-align: center;
+
+            & + .form-control {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    &-line {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .form-control {
+            width: 96px;
+            flex-shrink: 0;
+            margin-left: 10px;
+            text-align: center;
+        }
+    }
+
+    label:not([class]) {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 25px;
+        margin: 0 0 10px;
+
+        span {
+            font-weight: 400;
+        }
+
+        &.required {
+            &::after {
+                content: " *";
+                color: var(--color-error);
+            }
+        }
+    }
+}
+
+.form-control {
+    height: 40px;
+    padding: 5px 0;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    border-width: 1px 0;
+    border-color: transparent transparent var(--color-dark);
+    border-radius: 0;
+    color: var(--color-dark);
+
+    &:focus {
+        box-shadow: none;
+        border-color: transparent transparent var(--color-dark);
+    }
+
+    &:disabled,
+    &[readonly] {
+        background: inherit;
+    }
+
+    &--price {
+        width: 96px;
+        text-align: center;
+
+        & + .form-info {
+            margin-left: 24px;
+        }
+    }
+}
+
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+    &,
+    &:focus {
+        border-color: transparent transparent var(--color-error);
+        color: var(--color-error);
+        background-image: none;
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.invalid-feedback {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--color-error);
+    text-align: center;
+}
+
+.form-text {
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    margin: 20px 0 0;
+}
+
+.form-pass {
+    display: flex;
+
+    &-checkbox {
+        display: none;
+
+        .form-pass &:checked {
+            ~ .form-pass-label {
+                fill: gray;
+            }
+        }
+    }
+
+    & &-label {
+        order: 2;
+        width: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 0 -24px;
+        flex-shrink: 0;
+        cursor: pointer;
+        fill: var(--color-dark);
+
+        svg {
+            width: 24px;
+            height: 24px;
+            fill: inherit;
+        }
+    }
+
+    .form-control {
+        padding-right: 30px;
+    }
+}
+
+.form-check {
+    display: flex;
+    padding: 0;
+    font-size: 16px;
+    line-height: 26px;
+
+    input:checked ~ & label {
+        svg {
+            fill: var(--color-white);
+            background-color: var(--color-main);
+            border-color: transparent;
+        }
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        user-select: none;
+        font-weight: normal;
+        font-size: inherit;
+        line-height: inherit;
+
+        svg {
+            width: 21px;
+            height: 21px;
+            fill: transparent;
+            border: 1px solid var(--color-dark);
+            flex-shrink: 0;
+            align-self: flex-start;
+            transform: translateY(2px);
+
+            & + span {
+                margin-left: 20px;
+            }
+        }
+    }
+
+    &-text {
+        margin-left: 20px;
+    }
+
+    & + & {
+        margin-top: -25px;
+    }
+}
+
+.form-date {
+    display: flex;
+
+    .icon {
+        width: 34px;
+        height: 34px;
+        padding: 6px;
+        background: var(--color-main);
+        fill: var(--color-white);
+        flex-shrink: 0;
+        margin-left: 30px;
+        margin-top: 6px;
+    }
+}
+
+.bootstrap-select .dropdown-toggle {
+    max-width: 100%;
+    min-width: unset;
+
+    &:hover {
+        color: var(--color-main);
+    }
+
+    .filter-option-inner-inner {
+        text-overflow: ellipsis;
+    }
+}
+
+.bootstrap-select > select {
+    display: none !important;
+}
+
+.bootstrap-select .dropdown-toggle:focus,
+.bootstrap-select > select.mobile-device:focus + .dropdown-toggle {
+    outline: none !important;
+}
+
+.bootstrap-select > .dropdown-toggle.bs-placeholder,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:active,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:focus,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
+    color: #ADADAD;
+}
+
+.dropdown-toggle::after {
+    color: var(--color-main);
+}
+
+.dropdown-menu {
+    background-color: #fff;
+    box-shadow: 0 4px 15px 0 rgba(#000, .1);
+    border-radius: 0;
+    padding: 7px 0;
+    margin: -1px -14px 0;
+    border: none;
+    border-top: 1px solid var(--color-dark);
+    min-width: calc(100% + 28px);
+}
+
+.dropup > .dropdown-menu {
+    border-top: none;
+    border-bottom: 1px solid var(--color-dark);
+}
+
+.bootstrap-select > .dropdown-menu {
+    min-width: calc(100% + 28px);
+
+    .form-group & {
+        width: calc(100% + 28px);
+    }
+}
+
+.dropdown-item {
+    line-height: 28px;
+    padding: 8px 14px;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: var(--color-main);
+    color: var(--color-dark);
+    outline: none;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: var(--color-main);
+    outline: none;
+}
+
+.bootstrap-select .dropdown-menu li a span.text {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100%;
+}
+
+textarea.form-control {
+    min-height: 208px;
+}
+
+.form-help {
+    margin-top: 20px;
+}
+
+.form-control-file {
+    display: none;
+}
+
+.disabled,
+.readonly {
+    &.form-group {
+        color: #ADADAD;
+    }
+
+    & .form-control {
+        color: #ADADAD;
+        border-bottom-color: #ADADAD;
+    }
+
+    & label {
+        color: #ADADAD;
+    }
+}
+
+.form-icon {
+    position: absolute;
+    transform: translateX(-100%);
+    left: -20px;
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    fill: var(--color-dark);
+}

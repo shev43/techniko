@@ -1,0 +1,49 @@
+.svg-list {
+    display: none;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    fill: var(--color-main);
+
+    &-type {
+        width: 24px;
+        height: 24px;
+    }
+
+    &-money {
+        width: 30px;
+        height: 24px;
+    }
+
+    &-car {
+        width: 35px;
+        height: 24px;
+    }
+
+    &-class {
+        fill: #4ACA1D;
+    }
+
+    &-frost {
+        fill: #38DAFE;
+    }
+
+    &-water {
+        fill: #2962F5;
+    }
+
+    &-mobility {
+        fill: #7C8575;
+    }
+
+    &-winter {
+        fill: #189AF8;
+    }
+
+    &-brand {
+        fill: #F29100;
+    }
+}

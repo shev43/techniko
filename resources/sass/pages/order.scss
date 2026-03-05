@@ -1,0 +1,240 @@
+.noUi-horizontal {
+    height: 8px;
+}
+
+.noUi-target {
+    background: var(--color-gray);
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+}
+
+.noUi-connect {
+    background: var(--color-main);
+}
+
+.noUi-handle {
+    border: 2px solid var(--color-main);
+    box-shadow: 0 4px 15px rgba(#000, .1);
+    background: var(--color-white);
+    border-radius: 50%;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 16px;
+    height: 16px;
+    top: -4px;
+    right: -8px;
+
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.noUi-handle::after,
+.noUi-handle::before {
+    display: none;
+}
+
+.order {
+    &-label {
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: 0.07em;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .icon {
+            position: absolute;
+            transform: translate(-100%, -50%);
+            left: -5px;
+            top: 50%;
+            width: 24px;
+            height: 24px;
+        }
+
+        .alt {
+            left: 0;
+            width: 29px;
+            height: 29px;
+        }
+    }
+
+    &-edit {
+        display: inline-flex;
+        align-items: center;
+        font-size: 18px;
+        line-height: 25px;
+        font-weight: 700;
+        color: var(--color-dark);
+        margin-top: 9px;
+
+        &:hover {
+            color: var(--color-dark);
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            padding: 4px;
+            background: var(--color-main);
+            fill: var(--color-white);
+            margin-right: 12px;
+        }
+    }
+
+    &-price {
+
+        &-range {
+            display: flex;
+            align-items: center;
+
+            .form-control {
+                width: 95px;
+
+                @include media-breakpoint-down(xs) {
+                    width: 100%;
+                }
+
+
+                text-align: center;
+            }
+
+            span {
+                display: block;
+                width: 60px;
+                text-align: center;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 28px;
+                flex-shrink: 0;
+            }
+        }
+
+        &-count {
+            display: flex;
+            margin: 0 0 30px;
+
+            .heading {
+                margin: 0;
+            }
+
+            .form-control {
+                width: 65px;
+                text-align: center;
+                margin: 0;
+                flex-shrink: 0;
+                transform: translateY(-5px);
+
+                &.per_hour {
+                    width: 160px;
+                }
+            }
+
+            .heading + .form-control,
+            .form-control + .heading {
+                margin-left: 20px;
+            }
+        }
+    }
+
+    &-form {
+        .block-item {
+            &--tender {
+                .bootstrap-select {
+                    margin-top: 7px;
+                }
+            }
+        }
+    }
+
+}
+
+.range {
+    margin: 0 0 60px;
+    @include media-breakpoint-down(xs) {
+        margin: 0 0 30px;
+    }
+
+    padding-top: 5px;
+
+    &-slider {
+        max-width: 255px;
+        margin: 0 0 15px;
+
+        @include media-breakpoint-down(xs) {
+            max-width: 100%;
+        }
+    }
+}
+
+#order-create-form {
+    label {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+        color: var(--color-dark);
+        margin-bottom: 8px;
+    }
+
+    .form-control {
+        border-bottom: 2px solid var(--color-dark);
+
+        &:focus {
+            border-bottom-color: var(--color-main);
+        }
+    }
+
+    .btn-default.btn-lg {
+        min-width: 200px;
+        font-size: 18px;
+        padding: 12px 40px;
+    }
+}
+
+.flatpickr-range {
+    cursor: pointer;
+}
+
+.related-categories {
+
+    &-price {
+        &-count {
+            display: flex;
+            margin: 0 0 30px;
+
+            .form-control {
+                width: 65px;
+                text-align: center;
+                margin: 0;
+                flex-shrink: 0;
+                transform: translateY(-5px);
+
+                &.per_hour {
+                    //width: 160px;
+                }
+            }
+
+            .heading + .form-control,
+            .form-control + .heading {
+                margin-left: 20px;
+            }
+        }
+    }
+
+
+    .form {
+        &-checkbox {
+            display: none;
+        }
+
+
+    }
+
+}
+

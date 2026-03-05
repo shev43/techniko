@@ -1,0 +1,67 @@
+@extends('layouts.amicms.app')
+
+@section('content')
+
+    <div class="card">
+        <div class="container-fluid">
+            <div class="row content-min-height">
+                <div class="p-0 column-panel border-end" style="max-width: 230px; min-width: 230px; left: -230px;">
+                    <h4 class="mb-3 ms-3 mt-3">Представник</h4>
+
+                    @include('amicms.business._partial.navbar', ['business_id'=>$business->id])
+
+
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        <div class="mb-4 d-md-flex align-items-center justify-content-between">
+                            <div>
+                                <h4>Інформація про представника</h4>
+                                <p>Основна інформація в цьому обліковому записі.</p>
+                            </div>
+
+                            @if($permission['business.company.edit'] == 1)
+                            <a class="btn btn-outline-primary" href="{{ route('amicms::business.company.edit', ['business_id'=>$business->id]) }}">Редагувати</a>
+                            @endif
+                        </div>
+                        <div class="row">
+                            <div class="col" style="max-width: 200px;">
+                                <div class="mb-3">
+                                    <img class="img-fluid w-100 rounded" src="@if(!empty($business->photo)){{ asset('storage/business/'.$business->photo) }}@else{{ asset('img/company-logo.svg') }}@endif" alt="upload avatar">
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th class="py-4">Назва</th>
+                                            <td class="py-4">{{ $business->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="py-4">Телефон</th>
+                                            <td class="py-4">{{ $business->phoneFormatted }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="py-4">Email</th>
+                                            <td class="py-4">{{ $business->email }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="py-4">Про компанію</th>
+                                            <td class="py-4">{!! $business->description !!}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="py-4">Адреса</th>
+                                            <td class="py-4">{{ $business->address }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection

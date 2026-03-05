@@ -1,0 +1,171 @@
+.modal {
+    @include media-breakpoint-down(xs) {
+        &-dialog {
+            margin: 0;
+            min-height: 100%;
+        }
+    }
+
+    .modal-content {
+        border: none;
+        border-radius: 0;
+        padding: 60px 30px 45px;
+
+        .ui-datepicker {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: -48px;
+        top: 8px;
+        opacity: 1;
+
+        @include media-breakpoint-down(xs) {
+            top: 0;
+            right: 0;
+        }
+
+        width: 40px;
+        height: 40px;
+
+        &:focus {
+            outline: none;
+        }
+
+        svg {
+            width: 32px;
+            height: 32px;
+            transform: rotate(45deg);
+            fill: var(--color-white);
+
+            @include media-breakpoint-down(xs) {
+                fill: var(--color-main);
+            }
+        }
+    }
+
+    &-inner {
+        width: 100%;
+        max-width: 270px;
+        margin: 0 auto;
+    }
+
+    .heading {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    &-link {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        color: var(--color-main);
+    }
+
+    &-done {
+        margin: 0 0 40px;
+        text-align: center;
+
+        svg {
+            width: 80px;
+            height: 80px;
+            fill: var(--color-main);
+        }
+    }
+
+    .nav {
+        &-tabs {
+            border: none;
+            margin-bottom: 40px;
+
+            .nav-item {
+                margin: 0;
+                flex-grow: 1;
+                text-align: center;
+            }
+
+            .nav-link {
+                border-radius: 0;
+                border: none;
+                border-bottom: 3px solid var(--color-gray);
+                padding: 7px;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 25px;
+                color: var(--color-dark);
+
+                &.active {
+                    font-weight: 700;
+                    border-color: var(--color-main);
+                }
+
+                &:hover {
+                    color: var(--color-main);
+                }
+            }
+        }
+    }
+
+    &-parameters {
+        @include media-breakpoint-up(md) {
+            max-width: 600px;
+        }
+
+        .modal-content {
+            padding-top: 35px;
+        }
+
+        .title {
+            margin-bottom: 35px;
+        }
+
+        &-list {
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            max-width: 255px;
+        }
+    }
+
+    &-offer {
+        .heading {
+            text-align: left;
+
+            &-price {
+                margin-bottom: 16px;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            max-width: 810px;
+        }
+
+        .offer-plant {
+            padding: 0 0 30px;
+            margin: 0 0 30px;
+            border-bottom: 1px solid var(--color-gray);
+        }
+
+        &-pricelist {
+            margin-bottom: 32px;
+
+            [class^="col-"] {
+                margin-bottom: 8px;
+            }
+        }
+
+        .leftside {
+            @include media-breakpoint-down(md) {
+                margin-bottom: 40px;
+            }
+        }
+    }
+}

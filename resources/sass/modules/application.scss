@@ -1,0 +1,28 @@
+.application {
+    &-title {
+        font-weight: bold;
+        font-size: 28px;
+        line-height: 39px;
+        letter-spacing: 0.07em;
+        margin: 0 0 20px;
+    }
+
+    &-item {
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 31px;
+        letter-spacing: 0.07em;
+        @include media-breakpoint-down(xs) {
+            padding: 10px 0;
+        }
+        padding: 30px 0;
+
+        p {
+            margin-bottom: 8px;
+        }
+
+        & + & {
+            border-top: 1px solid var(--color-gray);
+        }
+    }
+}

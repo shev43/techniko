@@ -1,0 +1,102 @@
+.offer_details {
+    .seller_profile-persons-img {
+        margin-right: 30px;
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    .offer-plant {
+        @include media-breakpoint-down(md) {
+            margin-bottom: 60px;
+        }
+    }
+
+    &-price {
+        margin: 0 0 20px;
+
+        &-title {
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 26px;
+            margin: 0 0 8px;
+        }
+
+        &-number {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 25px;
+
+            span {
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &-status {
+        display: flex;
+        margin: 0 0 60px;
+        background: var(--color-light);
+
+        &-icon {
+            background: var(--color-main);
+            width: 160px;
+            min-height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+
+            @include media-breakpoint-down(md) {
+                width: 80px;
+                min-height: 80px;
+            }
+
+            .icon {
+                fill: var(--color-white);
+
+                width: 80px;
+                height: 80px;
+
+                @include media-breakpoint-down(md) {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                &-car {
+                    width: 86px;
+                    height: 80px;
+
+                    @include media-breakpoint-down(md) {
+                        width: 43px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+
+        &-body {
+            flex-grow: 1;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .heading {
+            margin: 0;
+        }
+
+        .heading + &-text {
+            margin-top: 6px;
+        }
+
+        &-text {
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+}
