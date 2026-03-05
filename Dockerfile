@@ -22,7 +22,7 @@ WORKDIR /var/www/html
 
 # Copy composer files and install PHP dependencies
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --no-scripts
+RUN composer install --no-dev --optimize-autoloader --no-scripts --ignore-platform-reqs
 
 # Copy package files and build frontend assets
 COPY package.json package-lock.json webpack.mix.js ./
