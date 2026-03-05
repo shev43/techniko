@@ -6,13 +6,18 @@ RUN apt-get update && apt-get install -y \
     libonig-dev libxml2-dev libzip-dev libsqlite3-dev ca-certificates gnupg \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo pdo_mysql pdo_sqlite mbstring exif pcntl bcmath gd zip \
-    && a2dismod mpm_event && a2enmod mpm_prefork && a2enmod rewrite \
+    && a2enmod rewrite \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Node.js 18 LTS via NodeSource
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Ensure only one Apache MPM is loaded (prefork required for mod_php)
+RUN a2dismod mpm_event 2>/dev/null || true \
+    && a2dismod mpm_worker 2>/dev/null || true \
+    && a2enmod mpm_prefork 2>/dev/null || true
 
 # Set Apache document root to /public
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
@@ -47,18 +52,9 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 RUN touch /var/www/html/database/database.sqlite \
     && chown www-data:www-data /var/www/html/database/database.sqlite
 
-# Create startup script
-RUN echo '#!/bin/bash\n\
-if [ -n "$PORT" ]; then\n\
-    sed -i "s/Listen 80/Listen $PORT/g" /etc/apache2/ports.conf\n\
-    sed -i "s/:80/:$PORT/g" /etc/apache2/sites-available/000-default.conf\n\
-fi\n\
-php artisan migrate --force 2>/dev/null || true\n\
-php artisan config:cache\n\
-php artisan route:cache 2>/dev/null || true\n\
-php artisan storage:link 2>/dev/null || true\n\
-apache2-foreground' > /usr/local/bin/start.sh \
-    && chmod +x /usr/local/bin/start.sh
+# Copy startup script
+COPY docker/start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
 
 EXPOSE ${PORT:-80}
 
